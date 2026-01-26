@@ -1,4 +1,6 @@
 import hardhatToolboxViemPlugin from "@nomicfoundation/hardhat-toolbox-viem";
+import hardhatVerify from "@nomicfoundation/hardhat-verify";
+
 import { configVariable, defineConfig } from "hardhat/config";
 import dotenv from "dotenv";
 dotenv.config();
@@ -33,8 +35,8 @@ export default defineConfig({
     sepolia: {
       type: "http",
       chainType: "l1",
-      url: configVariable("SEPOLIA_RPC_URL"),
-      accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
+      url: process.env.URL || '',
+      accounts: [process.env.PRIVATE_KEY || ''],
     },
     polkadotTestNet: {
       type: "http",
@@ -44,16 +46,9 @@ export default defineConfig({
       // accounts: [configVariable("PRIVATE_KEY") || ''],
     },
   },
-
-  chainDescriptors: {
-    420420417: {
-      name: 'polkadotTestNet',
-      blockExplorers: {
-        etherscan: {
-          name: 'Polkadot Hub Testnet',
-          url: 'https://polkadot.testnet.routescan.io/',
-        },
-      },
+  verify: {
+    etherscan: {
+      apiKey: process.env.API_KEY || ''
     },
-  },
+  }
 });

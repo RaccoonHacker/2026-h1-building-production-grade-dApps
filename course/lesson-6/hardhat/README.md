@@ -57,5 +57,9 @@ npx hardhat ignition deploy --network polkadotTestnet ignition/modules/Counter.t
 ```
 
 ```shell
-npx hardhat verify --network polkadotTestNet 0x7A264d31959557AF0a76Ded7B0A4c60Ef961d889
+npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
+```
+
+```shell
+npx hardhat verify --network sepolia 0x8747cFF0952987Fc9A8Be55462f281B758f85eaA
 ```
