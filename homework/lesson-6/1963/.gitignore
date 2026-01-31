@@ -5,6 +5,7 @@
 broadcast/
 cache/
 out/
+lib/
 
 # Subgraph
 subgraph/node_modules/
